@@ -1,0 +1,23 @@
+#this is shell script0
+make
+echo "please enter teacher first..\n"
+echo "who are you? answer T(teacher) or S(student)."
+read NAME
+p1="T"
+p2="S"
+PORT=9040
+if [ $NAME = $p1 ]
+then
+	echo "my ip is...\n"
+	echo "-------------- " 
+	hostname -I 
+	echo "--------------  \n"
+	./teacher $PORT
+elif [ $NAME = $p2 ]
+then
+	echo "enter teacher's ip"
+	read IP
+	./student $IP $PORT
+else
+	echo "wrong answer. please restart shell."
+fi
